@@ -1,6 +1,6 @@
 
 #### mvn eclipse:eclipse -Dwtpversion=2.0
-mvn eclipse:eclipse -Dwtpversion=2.0
+`mvn eclipse:eclipse -Dwtpversion=2.0`
 
 #### jetty 取消文件映射缓存
 解决办法，找到 %repo%/org/eclipse/jetty/jetty-webapp/9.2.8.v20150217/jetty-webapp-9.2.8.v20150217.jar（%repo% 表示你
