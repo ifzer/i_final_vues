@@ -8,6 +8,7 @@ import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.StrKit;
 import com.jfinal.plugin.activerecord.Page;
+import com.xiaoleilu.hutool.util.StrUtil;
 
 public class UserController extends Controller{
 	
@@ -44,6 +45,7 @@ public class UserController extends Controller{
 	public void deleteuserbyid(){
 		int userid = getParaToInt(0);
 		User user = User.userdao.findById(userid);
+		StrUtil.builder().append("");
 		if(user != null ){			
 			user.delete();
 			list();
