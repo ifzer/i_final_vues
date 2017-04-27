@@ -17,7 +17,8 @@ public class WebConfig extends JFinalConfig{
 
 	@Override
 	public void configConstant(Constants paramConstants) {
-		paramConstants.setDevMode(getPropertyToBoolean("devMode"));
+		PropKit.use("config.properties");
+		paramConstants.setDevMode(PropKit.getBoolean("devMode"));
 	}
 
 	@Override

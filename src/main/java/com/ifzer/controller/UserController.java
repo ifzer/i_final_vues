@@ -55,8 +55,8 @@ public class UserController extends Controller{
 	}
 	
 	public void list(){
-		int pageNo = getParaToInt("pageNo");
-		int pageSize = getParaToInt("pageSize");
+		int pageNo = getParaToInt("pageNo", 1);
+		int pageSize = getParaToInt("pageSize", 15);
 		Page<User> page = User.userdao.paginate(pageNo, pageSize, "select * ", "from t_users");
 		if(page != null && page.getTotalRow() > 0){
 			renderJson(page);
