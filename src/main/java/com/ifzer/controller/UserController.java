@@ -13,7 +13,8 @@ import com.xiaoleilu.hutool.util.StrUtil;
 public class UserController extends Controller{
 	
 	public void index(){
-		renderHtml("<h1>user ok .</h1><br>");
+		redirect("index.html");
+		//renderHtml("<h1>user ok .</h1><br>");
 	}
 
 	public void adduser(){

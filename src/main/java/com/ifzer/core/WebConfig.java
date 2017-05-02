@@ -53,6 +53,7 @@ public class WebConfig extends JFinalConfig{
 
 	@Override
 	public void configRoute(Routes paramRoutes) {
+		paramRoutes.add("/", UserController.class, "index.html");
 		paramRoutes.add("/users", UserController.class);
 	}
 
