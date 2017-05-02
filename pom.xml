@@ -93,7 +93,7 @@
 				<version>9.4.2.v20170220</version>
 				<configuration>
 					<httpConnector>
-						<port>8080</port>
+						<port>8787</port>
 					</httpConnector>
 					<stopKey>shutdown</stopKey>
 					<stopPort>9966</stopPort>

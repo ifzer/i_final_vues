@@ -1,89 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ifinalvue title</title>
+    <title>welcome</title>
 </head>
+
 <body>
-<div id="app">
-    {{ message }}
-</div>
-
-<div id="app-2">
-  <span v-bind:title="message">
-    鼠标悬停几秒钟查看此处动态绑定的提示信息！
-  </span>
-</div>
-
-
-<div id="app-3">
-    <p v-if="seen">现在你看到我了</p>
-</div>
-
-<div id="app-4">
-    <ol>
-        <li v-for="todo in todos">
-            {{ todo.text }}
-        </li>
-    </ol>
-</div>
-
-<div id="app-5">
-    <p>{{message}}</p>
-    <button v-on:click="reverseMessage">逆转未来</button>
-
-</div>
-
+    <p>welcome to final vue</p>
 </body>
-
-<script src="asset/vuejs/dist/vue.min.js"></script>
-<script>
-
-    var app = new Vue({
-        el: '#app',
-        data: {
-            message: 'dddddddddddddddd Vue!'
-        }
-    })
-
-    var app2 = new Vue({
-        el: '#app-2',
-        data: {
-            message: '页面加载于 ： ' + new Date()
-        }
-    })
-
-    var app3 = new Vue({
-        el: '#app-3',
-        data: {
-            seen: 0
-        }
-    })
-
-    var app4 = new Vue({
-        el: '#app-4',
-        data: {
-            todos: [
-                { text: '学习 JavaScript' },
-                { text: '学习 Vue1' },
-                { text: '学习 Vue2' },
-                { text: '学习 Vue3' }
-            ]
-        }
-    })
-
-    var app5 = new Vue({
-        el: '#app-5',
-        data: {
-            message: "this is hello world"
-        },
-        methods:{
-            reverseMessage : function(){
-                this.message = this.message.split('').reverse().join('');
-            }
-        }
-    })
-
-</script>
 
 </html>
