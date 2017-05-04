@@ -24,8 +24,9 @@ public class UserController extends Controller{
 	}
 	
 	public void addrandomuser(){
-		User user = new User().set("nickname", StrKit.getRandomUUID()).set("password", StrKit.getRandomUUID());
-		user.set("createdate", new Date()).set("modifydate", new Date());
+		User user = new User().set("nickname", StrKit.getRandomUUID())
+                .set("password", StrKit.getRandomUUID());
+		user.set("gmt_create", new Date()).set("gmt_modified", new Date());
 		user.set("realname", StrKit.getRandomUUID());
 		user.set("status", Math.ceil(Math.random() * 10));
 		user.save();
@@ -33,7 +34,7 @@ public class UserController extends Controller{
 	}
 	
 	public void deletefirstuser(){
-		List<User> userList = User.userdao.find("select * from t_users");
+		List<User> userList = User.userdao.find("select * from t_user");
 		if(userList != null && !userList.isEmpty()){
 			User user = userList.get(0);
 			renderHtml("<h1>delete ok .</h1><br>"+user.toJson());
@@ -58,7 +59,7 @@ public class UserController extends Controller{
 	public void list(){
 		int pageNo = getParaToInt("pageNo", 1);
 		int pageSize = getParaToInt("pageSize", 15);
-		Page<User> page = User.userdao.paginate(pageNo, pageSize, "select * ", "from t_users");
+		Page<User> page = User.userdao.paginate(pageNo, pageSize, "select * ", "from t_user");
 		if(page != null && page.getTotalRow() > 0){
 			renderJson(page);
 		}else{

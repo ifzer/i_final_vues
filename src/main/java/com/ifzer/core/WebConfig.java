@@ -18,7 +18,7 @@ public class WebConfig extends JFinalConfig{
 	@Override
 	public void configConstant(Constants paramConstants) {
 		PropKit.use("config.properties");
-		paramConstants.setDevMode(PropKit.getBoolean("devMode"));
+		paramConstants.setDevMode(PropKit.getBoolean("devMode", false));
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class WebConfig extends JFinalConfig{
 		
 		ActiveRecordPlugin activeRecordPlugin = new ActiveRecordPlugin(dbplugin);
 		paramPlugins.add(activeRecordPlugin);
-		activeRecordPlugin.addMapping("t_users", User.class);
+		activeRecordPlugin.addMapping("t_user", User.class);
 	}
 
 	@Override
