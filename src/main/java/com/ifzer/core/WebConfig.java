@@ -11,7 +11,9 @@ import com.jfinal.config.Routes;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
+import com.jfinal.plugin.hikaricp.HikariCpPlugin;
 import com.jfinal.template.Engine;
+import com.sun.webkit.plugin.Plugin;
 
 public class WebConfig extends JFinalConfig{
 
@@ -42,8 +44,10 @@ public class WebConfig extends JFinalConfig{
 	@Override
 	public void configPlugin(Plugins paramPlugins) {
 		loadPropertyFile("config.properties");
-		DruidPlugin dbplugin = new DruidPlugin(getProperty("db.url"), 
+
+        HikariCpPlugin dbplugin = new HikariCpPlugin(getProperty("db.url"),
 				getProperty("db.username"), getProperty("db.password"));
+
 		paramPlugins.add(dbplugin);
 		
 		ActiveRecordPlugin activeRecordPlugin = new ActiveRecordPlugin(dbplugin);

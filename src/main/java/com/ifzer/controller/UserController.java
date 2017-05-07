@@ -59,12 +59,12 @@ public class UserController extends Controller{
 	public void list(){
 		int pageNo = getParaToInt("pageNo", 1);
 		int pageSize = getParaToInt("pageSize", 15);
-		Page<User> page = User.userdao.paginate(pageNo, pageSize, "select * ", "from t_user");
+		Page<User> page = User.userdao.paginate(pageNo, pageSize, "select * ", "from t_user order by gmt_create desc");
 		if(page != null && page.getTotalRow() > 0){
-			renderJson(page);
-		}else{
-			renderHtml("<p>列表暂无数据</p>");
+		    setAttr("users", page);
 		}
+	    renderJson(page);
 	}
+
 	
 }

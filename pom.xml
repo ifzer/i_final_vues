@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>com.jfinal</groupId>
 			<artifactId>jfinal</artifactId>
-			<version>3.0</version>
+			<version>3.1</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -35,11 +35,11 @@
 		<!-- MySql end -->
 
 		<!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid</artifactId>
-			<version>1.0.29</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.alibaba</groupId>-->
+			<!--<artifactId>druid</artifactId>-->
+			<!--<version>1.0.29</version>-->
+		<!--</dependency>-->
 
 		<dependency>
 			<groupId>com.zaxxer</groupId>
@@ -68,17 +68,9 @@
 		<dependency>
 			<groupId>com.xiaoleilu</groupId>
 			<artifactId>hutool-core</artifactId>
-			<version>3.0.4</version>
+			<version>3.0.5</version>
 			<scope>compile</scope>
 		</dependency>
-
-		<!-- javax servlet -->
-		<!--<dependency>-->
-			<!--<groupId>javax.servlet</groupId>-->
-			<!--<artifactId>javax.servlet-api</artifactId>-->
-			<!--<version>3.1.0</version>-->
-			<!--<scope>provided</scope>-->
-		<!--</dependency>-->
 
 	</dependencies>
 	<build>
