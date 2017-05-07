@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user list</title>
+    <link rel="stylesheet" href="/asset/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<div id="app">
+    <button @click="addUser">addUser</button>
+    <button @click="queryUserList()">queryUserList</button>
+    <template :if="!userPage || !userPage.lastPage">
+        <button :show="!userPage.lastPage" @click="queryUserList(userPage.pageNumber + 1)">nextPage</button>
+    </template>
+
+    <table>
+        <tr>
+            <td>nickname</td>
+            <td>realname</td>
+            <td>password</td>
+            <td>create</td>
+        </tr>
+        <tr v-for="user in userPage.list">
+            <td>{{user.nickname}}</td>
+            <td>{{user.realname}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.gmt_create}}</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+
+<script src="/asset/vuejs/dist/vue.min.js"></script>
+<script src="/asset/vuejs/vue-resource1.3.1.min.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            userPage : {}
+        },
+        methods:{
+            addUser: function () {
+                this.$http.get("/users/addrandomuser").then(resp => {
+                    this.userPage = resp.data;
+                }, resp => {
+                    console.error(resp);
+                });
+            },
+            queryUserList: function (pageNo) {
+                if(!pageNo){
+                    pageNo = 1;
+                }
+                this.$http.get("/users/list?pageNo="+pageNo).then(resp =>{
+                    this.userPage = resp.data;
+                }, resp => {
+                    console.error(resp);
+                });
+            }
+        }
+    });
+
+
+</script>
+
+</html>
